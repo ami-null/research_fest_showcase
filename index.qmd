@@ -3,8 +3,8 @@
 # subtitle: "Efficient data science with `R`"
 format:
     revealjs:
-        width: 1280
-        height: 720
+        width: 900
+        height: 1600
         pagetitle: "Research fair 2024"
         menu: false
         history: false
@@ -54,8 +54,9 @@ data(package = 'palmerpenguins')
 ```{r}
 #| echo: true
 #| warning: false
-ggplot(data = penguins, 
-       mapping = aes(x = bill_length_mm, y = flipper_length_mm)) + 
+ggplot(data = penguins,
+       mapping = aes(x = bill_length_mm, 
+                     y = flipper_length_mm)) +
     geom_point()
 ```
 
@@ -64,7 +65,9 @@ ggplot(data = penguins,
 #| echo: true
 #| warning: false
 ggplot(penguins, 
-       mapping = aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + 
+       mapping = aes(x = bill_length_mm, 
+                     y = flipper_length_mm, 
+                     color = species)) + 
     geom_point()
 ```
 
@@ -73,7 +76,9 @@ ggplot(penguins,
 #| echo: true
 #| warning: false
 ggplot(penguins, 
-       mapping = aes(x = bill_length_mm, y = flipper_length_mm, color = species, 
+       mapping = aes(x = bill_length_mm, 
+                     y = flipper_length_mm, 
+                     color = species, 
                      size = body_mass_g)) + 
     geom_point(alpha = 0.5)
 ```
@@ -83,7 +88,9 @@ ggplot(penguins,
 #| echo: true
 #| warning: false
 ggplot(penguins, 
-       mapping = aes(x = bill_length_mm, y = flipper_length_mm, color = species, 
+       mapping = aes(x = bill_length_mm, 
+                     y = flipper_length_mm, 
+                     color = species, 
                      size = body_mass_g)) + 
     geom_point(alpha = 0.5) +
     facet_wrap(~island)
@@ -94,7 +101,9 @@ ggplot(penguins,
 #| echo: true
 #| warning: false
 ggplot(penguins,
-       mapping = aes(y = body_mass_g, x = species, fill = species)) +
+       mapping = aes(y = body_mass_g, 
+                     x = species, 
+                     fill = species)) +
     geom_boxplot(show.legend = F)
 ```
 
@@ -109,7 +118,9 @@ More informative: gives a sense of the density too!
 #| echo: true
 #| warning: false
 ggplot(penguins,
-       mapping = aes(y = body_mass_g, x = species, fill = species)) +
+       mapping = aes(y = body_mass_g, 
+                     x = species, 
+                     fill = species)) +
     geom_violin(show.legend = F)
 ```
 
