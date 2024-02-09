@@ -36,7 +36,6 @@ A demonstration by <span style="color:blue;">Md. Aminul Islam Shazid</span>.
 Grammar of graphics with `ggplot2`
 :::
 
-
 ## Plots using grammar of graphics with `ggplot2` {data-autoslide="15000"}
 - `ggplot2` is an `R` package that implements the grammar of graphics.
 - Can provide beautiful graphics with some simple building blocks.
@@ -111,7 +110,6 @@ ggplot(penguins,
 # geom_boxplot(position = position_dodge2(preserve = "single"))
 ```
 
-
 ## Violon plots as alternative to boxplot
 More informative: gives a sense of the density too!
 ```{r}
@@ -171,7 +169,6 @@ Fast data exploration with  `DataExplorer`
 :::
 
 ## Basic info about a dataset
-
 ```{r}
 #| echo: true
 library(DataExplorer)
@@ -179,7 +176,6 @@ plot_intro(penguins)
 ```
 
 ## Find missing values
-
 ```{r}
 #| echo: true
 plot_missing(penguins)
@@ -209,13 +205,13 @@ plot_histogram(diamonds)
 plot_density(diamonds)
 ```
 
-## Bivariate continuous distribution based on a categorical variable
+## Boxplot of continuous variables grouped by a categorical variable
 ```{r}
 #| echo: true
 plot_boxplot(diamonds, by = "cut")
 ```
 
-## Scatterplot of one feature with all other continuous features
+## Scatterplot of one variable with all other continuous variable
 ```{r}
 #| echo: true
 plot_scatterplot(
@@ -231,12 +227,11 @@ plot_scatterplot(
 plot_qq(diamonds)
 ```
 
-## View overall correlation heatmap
+## Correlogram
 ```{r}
 #| echo: true
 plot_correlation(split_columns(diamonds)$continuous)
 ```
-
 
 
 ## {.center}
@@ -244,20 +239,3 @@ plot_correlation(split_columns(diamonds)$continuous)
 Publication ready tables with `gtsummary`
 :::
 
-
-<!-- ## A title -->
-
-<!-- ```{r} -->
-<!-- #| output-location: column -->
-<!-- #| results: hold -->
-<!-- #| echo: true -->
-<!-- plot(mtcars$mpg, mtcars$wt) -->
-<!-- ``` -->
-
-<!-- ## Another title {auto-animate="true"} -->
-
-<!-- test -->
-
-<!-- ## Another title {auto-animate="true"} -->
-
-<!-- Another test -->
