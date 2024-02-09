@@ -20,15 +20,76 @@ format:
         auto-slide-stoppable: true
         loop: true
         embed-resources: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## `R` in Action {.center}
 ::: {.r-fit-text}
 Efficient data science with `R`
 :::
+A demonstration by Md. Aminul Islam Shazid
 
 
-## {.center}
+## {.center data-autoslide="5000"}
+::: {.r-fit-text}
+Grammar of graphics with `ggplot2`
+:::
+
+
+## Plots using grammar of graphics with `ggplot2` {data-autoslide="15000"}
+- `ggplot2` is an `R` package that implements the grammar of graphics.
+- Can provide beautiful graphics with some simple building blocks.
+- Variables/features/columns are mapped to various elements of the plot called "aesthetics", e.g., axes, colours, point size, line type etc.
+- Then a geometry transforms that "aesthetic" mapping into a plot.
+
+## A simple example
+```{r}
+library(ggplot2)
+library(palmerpenguins)
+data(package = 'palmerpenguins')
+# attributes(penguins$bill_length_mm)$label <- "Bill length (mm)"
+```
+
+```{r}
+#| echo: true
+#| warning: false
+ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm, y = flipper_length_mm)) + 
+    geom_point()
+```
+
+## Adding a grouping variable
+```{r}
+#| echo: true
+#| warning: false
+ggplot(penguins, 
+       mapping = aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + 
+    geom_point()
+```
+
+## Let's add another dimension to the plot!
+```{r}
+#| echo: true
+#| warning: false
+ggplot(penguins, 
+       mapping = aes(x = bill_length_mm, y = flipper_length_mm, color = species, 
+                     size = body_mass_g)) + 
+    geom_point(alpha = 0.5)
+```
+
+## Adding yet another dimension!
+```{r}
+#| echo: true
+#| warning: false
+ggplot(penguins, 
+       mapping = aes(x = bill_length_mm, y = flipper_length_mm, color = species, 
+                     size = body_mass_g)) + 
+    geom_point(alpha = 0.5) +
+    facet_wrap(~island)
+```
+
+## {.center data-autoslide="5000"}
 ::: {.r-fit-text}
 Publication ready tables with `gtsummary`
 :::
