@@ -14,7 +14,7 @@ format:
         controls-layout: bottom-right
         navigation-mode: linear
         # theme: serif
-        # center: true
+        center: true
         fig-align: center
         auto-slide: 5000
         auto-slide-stoppable: true
@@ -132,19 +132,19 @@ Publication ready tables with `gtsummary`
 :::
 
 
-## A title
+<!-- ## A title -->
 
-```{r}
-#| output-location: column
-#| results: hold
-#| echo: true
-plot(mtcars$mpg, mtcars$wt)
-```
+<!-- ```{r} -->
+<!-- #| output-location: column -->
+<!-- #| results: hold -->
+<!-- #| echo: true -->
+<!-- plot(mtcars$mpg, mtcars$wt) -->
+<!-- ``` -->
 
-## Another title {auto-animate="true"}
+<!-- ## Another title {auto-animate="true"} -->
 
-test
+<!-- test -->
 
-## Another title {auto-animate="true"}
+<!-- ## Another title {auto-animate="true"} -->
 
-Another test
+<!-- Another test -->
