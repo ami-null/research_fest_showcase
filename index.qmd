@@ -1,4 +1,6 @@
 ---
+# title: "`R` in Action"
+# subtitle: "Efficient data science with `R`"
 format:
     revealjs:
         width: 1280
@@ -19,6 +21,10 @@ format:
         loop: true
         embed-resources: true
 ---
+
+# `R` in Action
+
+Efficient data science with `R`
 
 # Publication ready tables with `gtsummary`
 
