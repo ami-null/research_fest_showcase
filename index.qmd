@@ -22,11 +22,17 @@ format:
         embed-resources: true
 ---
 
-# `R` in Action
-
+## `R` in Action {.center}
+::: {.r-fit-text}
 Efficient data science with `R`
+:::
 
-# Publication ready tables with `gtsummary`
+
+## {.center}
+::: {.r-fit-text}
+Publication ready tables with `gtsummary`
+:::
+
 
 ## A title
 
@@ -37,6 +43,10 @@ Efficient data science with `R`
 plot(mtcars$mpg, mtcars$wt)
 ```
 
-## Another title
+## Another title {auto-animate="true"}
 
 test
+
+## Another title {auto-animate="true"}
+
+Another test
