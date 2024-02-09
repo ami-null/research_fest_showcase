@@ -241,32 +241,35 @@ Publication ready tables with `gtsummary`
 
 ## Table describing the sample
 This is the so-called `table-1`
+
 ```{r}
-data(mtcars)
+# data(mtcars)
+# 
+# mtcars$am <- factor(mtcars$am, levels = 0:1, labels = c("Auto", "Manual"))
+# mtcars$cyl <- factor(mtcars$cyl)
+# 
+# # NOTE: categorical variables need to be converted to factors before applying variable labels
+# 
+# attributes(mtcars$mpg)$label <- "Miles per galon"
+# attributes(mtcars$hp)$label <- "Horsepower"
+# attributes(mtcars$wt)$label <- "Weight"
+# attributes(mtcars$qsec)$label <- "1/4 mile time"
+# attributes(mtcars$am)$label <- "Transmission"
+# attributes(mtcars$gear)$label <- "Gears"
+# 
+# attr(mtcars$cyl, "label") <- "Cylinders"
+# attr(mtcars$disp, "label") <- "Displacement"
+# 
+# mtcars <- mtcars |>
+#     select(c("mpg", "hp", "wt", "qsec", "am", "gear", "cyl", "disp"))
 
-mtcars$am <- factor(mtcars$am, levels = 0:1, labels = c("Auto", "Manual"))
-mtcars$cyl <- factor(mtcars$cyl)
-
-# NOTE: categorical variables need to be converted to factors before applying variable labels
-
-attributes(mtcars$mpg)$label <- "Miles per galon"
-attributes(mtcars$hp)$label <- "Horsepower"
-attributes(mtcars$wt)$label <- "Weight"
-attributes(mtcars$qsec)$label <- "1/4 mile time"
-attributes(mtcars$am)$label <- "Transmission"
-attributes(mtcars$gear)$label <- "Gears"
-
-attr(mtcars$cyl, "label") <- "Cylinders"
-attr(mtcars$disp, "label") <- "Displacement"
-
-mtcars <- mtcars |>
-    select(c("mpg", "hp", "wt", "qsec", "am", "gear", "cyl", "disp"))
+trial$response <- factor(trial$response)
 ```
 
 ```{r}
 #| echo: true
 library(gtsummary)
-tbl_summary(data = mtcars) |> 
+tbl_summary(data = trial) |> 
     bold_labels()
 ```
 
