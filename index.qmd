@@ -3,7 +3,24 @@ format:
     revealjs:
         width: 1280
         height: 720
+        pagetitle: "Research fair 2024"
+        menu: false
+        history: false
+        transition: slide
+        background-transition: slide
+        controls: true
+        controls-layout: bottom-right
+        navigation-mode: linear
+        # theme: serif
+        # center: true
+        fig-align: center
+        auto-slide: 5000
+        auto-slide-stoppable: true
+        loop: true
+        embed-resources: true
 ---
+
+# Publication ready tables with `gtsummary`
 
 ## A title
 
@@ -11,5 +28,9 @@ format:
 #| output-location: column
 #| results: hold
 #| echo: true
-
+plot(mtcars$mpg, mtcars$wt)
 ```
+
+## Another title
+
+test
