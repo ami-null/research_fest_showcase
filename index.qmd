@@ -122,9 +122,25 @@ ggplot(penguins,
                      x = species, 
                      fill = species)) +
     geom_violin(width = 0.5, show.legend = FALSE) + 
-    geom_boxplot(width = 0.1, color = "black", show.legend = FALSE)
+    geom_boxplot(fill = "white", width = 0.1, color = "black", show.legend = FALSE)
 ```
 
+## Bar diagrams
+```{r}
+library(dplyr)
+# nba = read.csv("http://datasets.flowingdata.com/ppg2008.csv")
+```
+
+
+```{r}
+#| echo: true
+penguins |> 
+    count(island, species) |> 
+    ggplot() + 
+    aes(x = island, y = n, fill = species) + 
+    geom_bar(stat = "identity", 
+             position = position_dodge2(preserve = "single"))
+```
 
 ## Line chart
 To show trend or evolution.
@@ -146,25 +162,6 @@ ggplot() +
     aes(x = time(AirPassengers), y = AirPassengers) + 
     geom_line() + 
     geom_smooth()
-```
-
-## Bar diagrams
-
-
-```{r}
-library(dplyr)
-# nba = read.csv("http://datasets.flowingdata.com/ppg2008.csv")
-```
-
-
-```{r}
-#| echo: true
-penguins |> 
-    count(island, species) |> 
-    ggplot() + 
-    aes(x = island, y = n, fill = species) + 
-    geom_bar(stat = "identity", 
-             position = position_dodge2(preserve = "single"))
 ```
 
 
