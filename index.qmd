@@ -1,0 +1,15 @@
+---
+format:
+    revealjs:
+        width: 1280
+        height: 720
+---
+
+## A title
+
+```{r}
+#| output-location: column
+#| results: hold
+#| echo: true
+
+```
