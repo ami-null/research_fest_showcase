@@ -126,15 +126,26 @@ ggplot(penguins,
 ```
 
 
-## Line charts
+## Line chart
 To show trend or evolution.
 
 ```{r}
-#| echo: false
+#| echo: true
 #| warning: false
 ggplot() + 
     aes(x = time(AirPassengers), y = AirPassengers) + 
     geom_line()
+```
+
+## Line chart with a trend line!
+`LOESS` smoother added as a trend line.
+```{r}
+#| echo: true
+#| warning: false
+ggplot() + 
+    aes(x = time(AirPassengers), y = AirPassengers) + 
+    geom_line() + 
+    geom_smooth()
 ```
 
 ## Bar diagrams
