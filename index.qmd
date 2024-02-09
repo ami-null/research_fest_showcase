@@ -104,7 +104,7 @@ ggplot(penguins,
        mapping = aes(y = body_mass_g, 
                      x = species, 
                      fill = species)) +
-    geom_boxplot(show.legend = F)
+    geom_boxplot(width = 0.2, show.legend = FALSE)
 ```
 
 ```{r}
@@ -121,8 +121,41 @@ ggplot(penguins,
        mapping = aes(y = body_mass_g, 
                      x = species, 
                      fill = species)) +
-    geom_violin(show.legend = F)
+    geom_violin(width = 0.5, show.legend = FALSE) + 
+    geom_boxplot(width = 0.1, color = "black", show.legend = FALSE)
 ```
+
+
+## Line charts
+To show trend or evolution.
+
+```{r}
+#| echo: false
+#| warning: false
+ggplot() + 
+    aes(x = time(AirPassengers), y = AirPassengers) + 
+    geom_line()
+```
+
+## Bar diagrams
+
+
+```{r}
+library(dplyr)
+# nba = read.csv("http://datasets.flowingdata.com/ppg2008.csv")
+```
+
+
+```{r}
+#| echo: true
+penguins |> 
+    count(island, species) |> 
+    ggplot() + 
+    aes(x = island, y = n, fill = species) + 
+    geom_bar(stat = "identity", 
+             position = position_dodge2(preserve = "single"))
+```
+
 
 
 
