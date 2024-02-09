@@ -168,9 +168,81 @@ penguins |>
 ```
 
 
+## {.center}
+::: {.r-fit-text}
+Fast data exploration with  `DataExplorer`
+:::
+
+## Basic info about a dataset
+
+```{r}
+#| echo: true
+library(DataExplorer)
+plot_intro(penguins)
+```
+
+## Find missing values
+
+```{r}
+#| echo: true
+plot_missing(penguins)
+```
+
+## Frequency distribution of all discrete variables
+```{r}
+#| echo: true
+plot_bar(diamonds)
+```
+
+## Frequency distribution by a discrete variable
+```{r}
+#| echo: true
+plot_bar(diamonds, by = "cut")
+```
+
+## Histogram of all continuous variables
+```{r}
+#| echo: true
+plot_histogram(diamonds)
+```
+
+## Kernel density of all continuous variables
+```{r}
+#| echo: true
+plot_density(diamonds)
+```
+
+## Bivariate continuous distribution based on a categorical variable
+```{r}
+#| echo: true
+plot_boxplot(diamonds, by = "cut")
+```
+
+## Scatterplot of one feature with all other continuous features
+```{r}
+#| echo: true
+plot_scatterplot(
+    split_columns(diamonds)$continuous, 
+    by = "price", 
+    sampled_rows = 1000L
+)
+```
+
+## Quantile-quantile plot of all continuous variables
+```{r}
+#| echo: true
+plot_qq(diamonds)
+```
+
+## View overall correlation heatmap
+```{r}
+#| echo: true
+plot_correlation(split_columns(diamonds)$continuous)
+```
 
 
-## {.center data-autoslide="5000"}
+
+## {.center}
 ::: {.r-fit-text}
 Publication ready tables with `gtsummary`
 :::
