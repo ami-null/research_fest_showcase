@@ -28,7 +28,7 @@ editor_options:
 ::: {.r-fit-text}
 Efficient data science with `R`
 :::
-A demonstration by Md. Aminul Islam Shazid
+A demonstration by <span style="color:blue;">Md. Aminul Islam Shazid</span>.
 
 
 ## {.center data-autoslide="5000"}
