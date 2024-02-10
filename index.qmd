@@ -194,25 +194,25 @@ plot_bar(diamonds, by = "cut")
 ```
 
 ## Histogram of all continuous variables
-```{r}
+```{r test0}
 #| echo: true
 plot_histogram(diamonds)
 ```
 
 ## Kernel density of all continuous variables
-```{r}
+```{r test1}
 #| echo: true
 plot_density(diamonds)
 ```
 
 ## Boxplot of continuous variables grouped by a categorical variable
-```{r}
+```{r test2}
 #| echo: true
 plot_boxplot(diamonds, by = "cut")
 ```
 
 ## Scatterplot of one variable with all other continuous variable
-```{r}
+```{r test3}
 #| echo: true
 plot_scatterplot(
     split_columns(diamonds)$continuous, 
@@ -222,8 +222,9 @@ plot_scatterplot(
 ```
 
 ## Quantile-quantile plot of all continuous variables
-```{r}
+```{r qqplot}
 #| echo: true
+#| cache: true
 plot_qq(diamonds)
 ```
 
@@ -262,14 +263,54 @@ This is the so-called `table-1`
 # 
 # mtcars <- mtcars |>
 #     select(c("mpg", "hp", "wt", "qsec", "am", "gear", "cyl", "disp"))
+library(gtsummary)
+trial$death <- factor(trial$death, levels = 0:1, labels = c("No", "Yes"))
+attributes(trial$response)$label <- "Patient died"
 
-trial$response <- factor(trial$response)
+# trial$response <- factor(trial$response)
+# attributes(trial$response)$label <- "Tumor Response"
 ```
 
 ```{r}
 #| echo: true
 library(gtsummary)
-tbl_summary(data = trial) |> 
+tbl_summary(
+    data = trial, 
+    missing_text = "NA",
+    include = c("age", "trt", "marker", "stage", "grade", "death")
+    ) |> 
     bold_labels()
 ```
+
+## Cross table
+
+```{r}
+#| echo: true
+tbl_summary(
+    data = trial, 
+    include = c("age", "trt", "marker", "stage", "grade"),
+    by = "death",
+    percent = "row",
+    missing_text = "NA",
+    ) |> 
+    add_p() |> 
+    bold_p() |> 
+    bold_labels() |> 
+    modify_spanning_header(all_stat_cols() ~ "**Death**")
+```
+
+## Regression model summary table
+`gtsummary` many different kinds of statistical models. Adding support for new models is also very easy.
+```{r}
+#| echo: true
+logit_model <- glm(death ~ age + trt + marker + stage + grade, 
+                   data = trial, family = binomial)
+tbl_regression(
+    logit_model,
+    exponentiate = TRUE
+    ) |> 
+    bold_p() |> 
+    bold_labels()
+```
+
 
