@@ -7,6 +7,7 @@ format:
         height: 1600
         pagetitle: "Research fair 2024"
         menu: false
+        hash: false
         history: false
         transition: slide
         background-transition: slide
@@ -20,6 +21,8 @@ format:
         auto-slide-stoppable: true
         loop: true
         embed-resources: true
+execute: 
+    cache: true
 editor_options: 
   chunk_output_type: console
 ---
@@ -120,7 +123,7 @@ ggplot(penguins,
                      x = species, 
                      fill = species)) +
     geom_violin(width = 0.5, show.legend = FALSE) + 
-    geom_boxplot(fill = "white", width = 0.1, color = "black", show.legend = FALSE)
+    geom_boxplot(fill = "white", width = 0.1, show.legend = FALSE)
 ```
 
 ## Bar diagrams
@@ -224,7 +227,6 @@ plot_scatterplot(
 ## Quantile-quantile plot of all continuous variables
 ```{r qqplot}
 #| echo: true
-#| cache: true
 plot_qq(diamonds)
 ```
 
@@ -314,3 +316,37 @@ tbl_regression(
 ```
 
 
+## {.center}
+::: {.r-fit-text}
+Decision tree classifier in `R`
+:::
+
+## Fitting a decision tree model
+Classifying disease outcome using decision tree
+```{r}
+#| echo: true
+library(tree)
+tree1 <- tree(death ~ age + trt + marker + stage + grade, 
+     data = trial)
+plot(tree1)
+text(tree1, pretty = 0)
+```
+
+
+## {.center}
+::: {.r-fit-text}
+Hierarchical clustering in `R`
+:::
+
+
+
+## {.center}
+::: {.r-fit-text}
+KNN clustering in `R`
+:::
+
+
+## {.center}
+::: {.r-fit-text}
+Time series analysis in `R`
+:::
