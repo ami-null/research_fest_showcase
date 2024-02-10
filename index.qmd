@@ -212,7 +212,8 @@ plot_histogram(diamonds)
 plot_density(diamonds)
 ```
 
-## Boxplot of continuous variables grouped by a categorical variable
+## Boxplot
+Boxplots of all continuous variables with groups formed with respect to a categorical variable
 ```{r test2}
 #| echo: true
 plot_boxplot(diamonds, by = "cut")
