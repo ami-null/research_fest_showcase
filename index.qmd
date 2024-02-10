@@ -368,3 +368,25 @@ fviz_cluster(km1, data = iris[, 1:4], geom = "point")
 ::: {.r-fit-text}
 Time series analysis in `R`
 :::
+
+## Plotting a time series
+```{r}
+#| echo: true
+library(ggfortify)
+autoplot(AirPassengers)
+```
+
+## Decompose a time series
+Decomposing the `AirPassengers` data into trend, seasonality etc.
+```{r}
+dAP <- decompose(AirPassengers)
+autoplot(dAP)
+```
+
+## Forecasting future values
+```{r}
+library(forecast)
+AP_arima <- auto.arima(AirPassengers)
+AP_f <- forecast(AP_arima, h = 30)
+autoplot(AP_f)
+```
