@@ -7,7 +7,8 @@ format:
         height: 1600
         pagetitle: "Research fair 2024"
         menu: false
-        hash: false
+        #hash: false
+        fragment-in-url: false
         history: false
         transition: slide
         background-transition: slide
@@ -338,12 +339,29 @@ text(tree1, pretty = 0)
 Hierarchical clustering in `R`
 :::
 
-
+## Finding similar cars
+```{r}
+#| echo: true
+#| fig.height: 6
+library(colorhcplot)
+d <- dist(mtcars)
+hc1 <- hclust(d)
+plot(hc1, hang = -1, cex = 0.8)
+rect.hclust(hc1, k = 3)
+```
 
 ## {.center}
 ::: {.r-fit-text}
 KNN clustering in `R`
 :::
+
+## Finding clusters of flowers in the `iris` dataset
+```{r}
+#| echo: true
+library(factoextra)
+km1 <- kmeans(iris[, 1:4], centers = 4, nstart = 1000)
+fviz_cluster(km1, data = iris[, 1:4], geom = "point")
+```
 
 
 ## {.center}

@@ -4,3 +4,5 @@ dplyr
 DataExplorer
 gtsummary
 tree
+colorhcplot
+factoextra
