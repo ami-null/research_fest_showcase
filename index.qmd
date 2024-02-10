@@ -22,6 +22,9 @@ format:
         auto-slide-stoppable: true
         loop: true
         embed-resources: true
+        # standalone: true
+        # self-contained: true
+        # self-contained-math: true
 execute: 
     cache: true
 editor_options: 
@@ -379,12 +382,14 @@ autoplot(AirPassengers)
 ## Decompose a time series
 Decomposing the `AirPassengers` data into trend, seasonality etc.
 ```{r}
+#| echo: true
 dAP <- decompose(AirPassengers)
 autoplot(dAP)
 ```
 
 ## Forecasting future values
 ```{r}
+#| echo: true
 library(forecast)
 AP_arima <- auto.arima(AirPassengers)
 AP_f <- forecast(AP_arima, h = 30)
